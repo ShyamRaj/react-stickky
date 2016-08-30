@@ -1,0 +1,27 @@
+{
+  "name": "react-affix",
+  "version": "1.0.0",
+  "description": "make anything sticky with this react component",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShyamRaj/react-sticky.git"
+  },
+  "keywords": [
+    "react-sticky",
+    "react",
+    "sticky",
+    "affix",
+    "react-affix",
+    "sticky-header"
+  ],
+  "author": "Shyam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShyamRaj/react-sticky/issues"
+  },
+  "homepage": "https://github.com/ShyamRaj/react-sticky#readme"
+}
