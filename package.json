@@ -4,14 +4,16 @@
   "description": "make anything sticky with this react component",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
+    "build": "babel src --loose --out-dir lib"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShyamRaj/react-sticky.git"
+    "url": "git+https://github.com/ShyamRaj/react-affix.git"
   },
   "keywords": [
     "react-sticky",
+    "react-affix",
     "react",
     "sticky",
     "affix",
@@ -21,7 +23,15 @@
   "author": "Shyam",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ShyamRaj/react-sticky/issues"
+    "url": "https://github.com/ShyamRaj/react-affix/issues"
   },
-  "homepage": "https://github.com/ShyamRaj/react-sticky#readme"
+  "homepage": "https://github.com/ShyamRaj/react-affix#readme",
+  "dependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "mocha": "^3.0.2"
+  },
+  "devDependencies": {}
 }
