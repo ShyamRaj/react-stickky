@@ -1,5 +1,7 @@
-const transpileMe = () => {
-    return "can babel transpile me!"
-};
+import React from 'react'
 
-export default transpileMe
+export default class extends React.Component {
+  render() {
+    return <div>This is a React component!</div>
+  }
+}

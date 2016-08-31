@@ -2,9 +2,9 @@
   "name": "react-affix",
   "version": "1.0.0",
   "description": "make anything sticky with this react component",
-  "main": "index.js",
+  "main": "/lib/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register \"./src/*.spec.js\"",
+    "test": "mocha --compilers js:babel-core/register --require ./test/setup.js \"./test/*.spec.js\"",
     "build": "babel src --loose --out-dir lib"
   },
   "repository": {
@@ -31,7 +31,9 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
-    "mocha": "^3.0.2"
+    "jsdom": "^9.4.5",
+    "mocha": "^3.0.2",
+    "react-addons-test-utils": "^15.3.1"
   },
   "devDependencies": {}
 }
