@@ -1,6 +1,6 @@
 {
   "name": "react-stickky",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "make anything sticky with this react component",
   "main": "lib/index.js",
   "scripts": {
