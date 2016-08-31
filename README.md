@@ -1,1 +1,1 @@
-# react-sticky
+# React-Stickky
