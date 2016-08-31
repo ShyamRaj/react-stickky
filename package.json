@@ -34,5 +34,8 @@
     "jsdom": "^9.4.5",
     "mocha": "^3.0.2",
     "react-addons-test-utils": "^15.3.1"
+  },
+  "dependencies": {
+    "react": "^15.3.1"
   }
 }
