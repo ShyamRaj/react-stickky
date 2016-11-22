@@ -6,7 +6,7 @@ import Sticky from './../src'
 describe('Make any thing sticky', () => {
   it('Should render a dumb React component', () => {
     const wrapper = TestUtils.renderIntoDocument(
-      <Sticky />
+      <Sticky>This is a React component!</Sticky>
     );
 
     const renderedText = TestUtils.findRenderedDOMComponentWithTag(wrapper, 'div');

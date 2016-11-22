@@ -40,7 +40,7 @@ export default class extends React.Component {
   render() {
     return <div
       style={{
-        width: "100%",
+        width: this.props.stickyWidth  && this.state.scrollingLock ? this.props.stickyWidth : "100%",
         zIndex: 100000,
         position: this.state.scrollingLock ? "fixed" : "relative"
       }}
