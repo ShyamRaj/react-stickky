@@ -1,5 +1,7 @@
 # React-Stickky
 
+[![Build Status](https://travis-ci.org/ShyamRaj/react-stickky.svg?branch=master)](https://travis-ci.org/ShyamRaj/react-stickky)
+
 > A simple React sticky component
 
 ### Description
