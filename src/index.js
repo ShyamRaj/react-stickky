@@ -15,7 +15,7 @@ export default class extends React.Component {
 
   componentWillMount() {
     this.state = {
-      scrollingLock: true
+      scrollingLock: false
     }
   }
 
