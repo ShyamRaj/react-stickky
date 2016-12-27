@@ -6,6 +6,7 @@ export default class extends React.Component {
     this.state = {
       scrollingLock: false
     };
+    this.scrollIndex = props.scrollIndex ? props.scrollIndex : 1;
     this.handleScroll = this.handleScroll.bind(this)
   }
 
@@ -25,11 +26,11 @@ export default class extends React.Component {
 
   handleScroll() {
 
-    if (window.scrollY > this.props.scrollIndex) {
+    if (window.scrollY > this.scrollIndex) {
       this.setState({
         scrollingLock: true
       })
-    } else if (window.scrollY < this.props.scrollIndex) {
+    } else if (window.scrollY < this.scrollIndex) {
       this.setState({
         scrollingLock: false
       })
