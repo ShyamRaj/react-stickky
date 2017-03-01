@@ -1,6 +1,7 @@
 import React from 'react'
+import Dimensions from 'react-dimensions'
 
-export default class extends React.Component {
+class Sticky extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +42,7 @@ export default class extends React.Component {
   render() {
     return <div
       style={{
-        width: this.props.stickyWidth  && this.state.scrollingLock ? this.props.stickyWidth : "100%",
+        width: this.props.stickyWidth  && this.state.scrollingLock ? this.props.stickyWidth : this.props.containerWidth,
         zIndex: 100000,
         position: this.state.scrollingLock ? "fixed" : "relative"
       }}
@@ -51,3 +52,5 @@ export default class extends React.Component {
     </div>
   }
 }
+
+export default Dimensions()(Sticky)

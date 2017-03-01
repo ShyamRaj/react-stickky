@@ -37,6 +37,7 @@
     "react-addons-test-utils": "^15.2.1"
   },
   "dependencies": {
-    "react": "^15.2.1"
+    "react": "^15.2.1",
+    "react-dimensions": "^1.2.0"
   }
 }
