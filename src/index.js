@@ -59,11 +59,12 @@ class Sticky extends React.Component {
   }
 
   handleScroll() {
-    if (window.scrollY > this.state.scrollIndex) {
+    const scrollBuffer = 10;
+    if (window.scrollY + scrollBuffer > this.state.scrollIndex) {
       this.setState({
         scrollingLock: true
       })
-    } else if (window.scrollY < this.state.scrollIndex) {
+    } else if (window.scrollY - scrollBuffer < this.state.scrollIndex) {
       this.setState({
         scrollingLock: false
       })
