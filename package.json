@@ -1,6 +1,6 @@
 {
   "name": "react-stickky",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "make anything sticky with this react component",
   "main": "lib/index.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "react-addons-test-utils": "^15.2.1"
   },
   "dependencies": {
+    "debounce": "^1.0.2",
     "react": "^15.2.1"
   }
 }
