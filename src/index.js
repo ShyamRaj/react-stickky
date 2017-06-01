@@ -1,4 +1,5 @@
 import React from 'react'
+import debounce from 'debounce';
 
 class Sticky extends React.Component {
   constructor(props) {
@@ -11,13 +12,15 @@ class Sticky extends React.Component {
     this.handleScroll = this.handleScroll.bind(this)
     this.calculateScrollIndex = this.calculateScrollIndex.bind(this)
     this.calculateWidth = this.calculateWidth.bind(this)
+    this.handleScrollDebounced = debounce(this.handleScroll, 25)
+    this.calculateWidthDebounced = debounce(this.calculateWidth, 25)
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScrollDebounced)
     if(!this.props.stickyWidth) {
       this.calculateWidth()
-      window.addEventListener('resize', this.calculateWidth)
+      window.addEventListener('resize', this.calculateWidthDebounced)
     }
     this.calculateScrollIndex()
   }
@@ -29,8 +32,8 @@ class Sticky extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', this.calculateWidth)
+    window.removeEventListener('scroll', this.handleScrollDebounced)
+    window.removeEventListener('resize', this.calculateWidthDebounced)
   }
 
   calculateScrollIndex() {
@@ -38,9 +41,7 @@ class Sticky extends React.Component {
       this.setState({
         scrollIndex: this.props.scrollIndex && this.props.scrollIndex
       })
-    }
-
-    else if (this.refs[this.stickyRef]) {
+    } else if (this.refs[this.stickyRef]) {
       this.dimension = this.refs[this.stickyRef].getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       this.setState({
@@ -59,11 +60,12 @@ class Sticky extends React.Component {
   }
 
   handleScroll() {
-    if (window.scrollY > this.state.scrollIndex) {
+    const scrollBuffer = 10;
+    if (window.pageYOffset + scrollBuffer > this.state.scrollIndex) {
       this.setState({
         scrollingLock: true
       })
-    } else if (window.scrollY < this.state.scrollIndex) {
+    } else if (window.pageYOffset - scrollBuffer < this.state.scrollIndex) {
       this.setState({
         scrollingLock: false
       })
