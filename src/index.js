@@ -11,8 +11,8 @@ class Sticky extends React.Component {
 
     this.stickyRef = Math.floor(Math.random() * (100 - 0 + 1)) + 0 + 'sticky'
     this.handleScroll = this.handleScroll.bind(this)
-    this.handleScrollDebounced = debounce(this.handleScroll, 25)
-    this.calculateWidthDebounced = debounce(this.calculateWidth, 25)
+    this.handleScrollDebounced = debounce(this.handleScroll, 10)
+    this.calculateWidthDebounced = debounce(this.calculateWidth, 10)
   }
 
   componentDidMount() {
