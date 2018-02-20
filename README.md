@@ -5,7 +5,7 @@
 > A simple React sticky component
 
 
-### [Live Demo](http://embed.plnkr.co/XvIwT0cAhEFxRL3clq7D/)
+### [Live Demo](https://codepen.io/shyamraj/project/full/DQbwmK/)
 
 
 ### Description
