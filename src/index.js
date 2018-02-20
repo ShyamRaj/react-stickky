@@ -1,17 +1,16 @@
 import React from 'react'
-import debounce from 'debounce';
+import PropTypes from 'prop-types'
+import debounce from 'debounce'
 
 class Sticky extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       scrollingLock: false
     };
 
     this.stickyRef = Math.floor(Math.random() * (100 - 0 + 1)) + 0 + 'sticky'
     this.handleScroll = this.handleScroll.bind(this)
-    this.calculateScrollIndex = this.calculateScrollIndex.bind(this)
-    this.calculateWidth = this.calculateWidth.bind(this)
     this.handleScrollDebounced = debounce(this.handleScroll, 25)
     this.calculateWidthDebounced = debounce(this.calculateWidth, 25)
   }
@@ -26,9 +25,9 @@ class Sticky extends React.Component {
   }
 
   componentWillMount() {
-    this.state = {
+    this.setState({
       scrollingLock: false
-    }
+    });
   }
 
   componentWillUnmount() {
@@ -41,7 +40,9 @@ class Sticky extends React.Component {
       this.setState({
         scrollIndex: this.props.scrollIndex && this.props.scrollIndex
       })
-    } else if (this.refs[this.stickyRef]) {
+    }
+
+    else if (this.refs[this.stickyRef]) {
       this.dimension = this.refs[this.stickyRef].getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       this.setState({
@@ -89,5 +90,13 @@ class Sticky extends React.Component {
     </div>
   }
 }
+
+Sticky.propTypes = {
+  className: PropTypes.any,
+  scrollIndex: PropTypes.number,
+  stickyWidth: PropTypes.string,
+  isSticky: PropTypes.bool,
+  children: PropTypes.any
+};
 
 export default Sticky

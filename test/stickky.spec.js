@@ -1,7 +1,10 @@
 import React from 'react'
+import Adapter from 'enzyme-adapter-react-16';
 import { expect } from 'chai'
-import { mount, shallow } from 'enzyme'
+import { configure, mount, shallow } from 'enzyme'
 import Sticky from './../src'
+
+configure({ adapter: new Adapter() });
 
 describe('Make any thing sticky', () => {
   it('Should render a dumb React sticky component', () => {
@@ -16,22 +19,22 @@ describe('Make any thing sticky', () => {
   })
 
   it('Should have scrollIndex set to 100', () => {
-    const wrapper = mount(<Sticky scrollIndex='100'>This is a React component!</Sticky>)
+    const wrapper = mount(<Sticky scrollIndex={100}>This is a React component!</Sticky>)
 
-    expect(wrapper.props().scrollIndex).to.eql("100")
+    expect(wrapper.props().scrollIndex).to.eql(100)
   })
 
   it('Should have scrollIndex and width passed down', () => {
-    const wrapper = mount(<Sticky stickyWidth='200%' scrollIndex='100'>This is a React component!</Sticky>)
+    const wrapper = mount(<Sticky stickyWidth='200%' scrollIndex={100}>This is a React component!</Sticky>)
 
-    expect(wrapper.props().scrollIndex).to.eql("100")
+    expect(wrapper.props().scrollIndex).to.eql(100)
     expect(wrapper.props().stickyWidth).to.eql("200%")
   })
 
   it('Should have isSticky to be passed down to force it sticky from a higher order component', () => {
-    const wrapper = mount(<Sticky isSticky='true'>This is a React component!</Sticky>)
+    const wrapper = mount(<Sticky isSticky={true}>This is a React component!</Sticky>)
 
-    expect(wrapper.props().isSticky).to.eql('true')
+    expect(wrapper.props().isSticky).to.eql(true)
   })
 
   it('Should have isSticky to be passed down to force it sticky another way for passing it dowm', () => {

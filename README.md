@@ -48,7 +48,7 @@
  ```
  <Sticky
       className={style}
-      scrollIndex="100"
+      scrollIndex={100}
       stickyWidth="100%"
       isSticky={props.isChecked}
  >
@@ -60,10 +60,3 @@
  - **scrollIndex** - @scrollIndex y=100 the stickyness will apply to the wrapped component
  - **isSticky** - A function that takes true or false to toggle stickyness
  - **stickyWidth** - Takes width if passed or defaults to 100%
-
-
-### Changelog
-
-_2.1.2_ 
- - Added debounce to the on scroll events 
- - added a buffer around scrolling calculations
