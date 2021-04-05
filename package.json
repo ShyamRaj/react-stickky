@@ -2,12 +2,13 @@
   "name": "react-stickky",
   "version": "3.0.2",
   "description": "make anything sticky with this react component",
-  "main": "lib/index.js",
+  "main": "lib/Sticky.js",
   "scripts": {
-    "test": "mocha --opts mocha.opts",
-    "test:watch": "npm run test -- --watch",
-    "prebuild": "rm -rf lib && mkdir lib && npm run test",
-    "build": "babel src --loose --out-dir lib"
+    "prebuild": "rm -rf lib && mkdir lib",
+    "build": "babel src --out-dir lib",
+    "test": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -29,21 +30,17 @@
   },
   "homepage": "https://github.com/ShyamRaj/react-stickky#readme",
   "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.26.0",
-    "chai": "^4.1.2",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jsdom": "^11.6.2",
-    "mocha": "^5.0.1",
-    "react-addons-test-utils": "^15.2.1",
-    "react-dom": "^16.2.0"
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@storybook/addon-actions": "^6.2.1",
+    "@storybook/addon-essentials": "^6.2.1",
+    "@storybook/addon-links": "^6.2.1",
+    "@storybook/react": "^6.2.1",
+    "react-addons-test-utils": "^15.2.1"
   },
   "dependencies": {
-    "debounce": "^1.1.0",
-    "react": "^16.2.0"
+    "debounce": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

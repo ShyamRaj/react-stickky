@@ -1,0 +1,17 @@
+import Sticky from "../Sticky";
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Header } from "./Header";
+import { Page } from "./Page";
+import './Sticky.css';
+
+<Meta title="Introduction" />
+
+# Sticky Header
+
+<div>
+    <Sticky className="stickyStyle">
+        <Header className="header"/>
+    </Sticky>
+    <Page className="article" />
+    <footer>This is a footer</footer>
+</div>

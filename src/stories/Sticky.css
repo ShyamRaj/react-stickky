@@ -1,0 +1,19 @@
+.stickyStyle {
+    top: 0;
+}
+
+.stickyStyle-bottom {
+    bottom: 0;
+}
+
+.container {
+}
+
+.header {
+    height: 50px;
+    background-color: #FFF;
+}
+
+.article {
+    height: 150vh;
+}
