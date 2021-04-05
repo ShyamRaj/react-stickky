@@ -1,6 +1,6 @@
 {
   "name": "react-stickky",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "make anything sticky with this react component",
   "main": "lib/Sticky.js",
   "scripts": {
