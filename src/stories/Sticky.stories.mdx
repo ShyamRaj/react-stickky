@@ -1,0 +1,42 @@
+<!-- Button.stories.mdx-->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+import Sticky from "./../Sticky";
+import { Header } from "./Header";
+import { Page } from "./Page";
+
+
+<Meta title="Sticky" />
+
+# Sticky
+
+export const Template = (args) => <div>
+    <Sticky className="stickyStyle" {...args}>
+        <Header className="header" user={{}}/>
+    </Sticky>
+    <Page className="article" />
+    <footer>This is a sticky footer</footer>
+</div>
+
+
+<Canvas>
+    <Story name="Primary">
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+<Canvas>
+    <Story name="Header and Footer">
+        <div className="container">
+            <Sticky className="stickyStyle" scrollIndex={150}>
+                <Header className="header" user={{}}/>
+            </Sticky>
+            <Page className="article" />
+            <Sticky className="stickyStyle-bottom" scrollIndex={10}>
+                <footer>This is a sticky footer</footer>
+            </Sticky>
+        </div>
+    </Story>
+</Canvas>

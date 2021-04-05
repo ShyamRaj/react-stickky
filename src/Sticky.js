@@ -7,38 +7,40 @@ const Sticky = ({ className, scrollIndex, stickyWidth, children }) => {
     const [scrollLock, setScrollLock] = useState(false);
     const [width, setWidth] = useState();
 
-    const calculateWidth = () => {
-        const elementWidth = stickyRef.current.getBoundingClientRect().width;
-
-        if (elementWidth !== width) {
-            setWidth(elementWidth ? elementWidth : '100%');
-        }
-    }
-
-    const calculateAndGetScrollIndex = () => {
-        const elementTop = stickyRef.current.getBoundingClientRect().top;
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const calculatedScrollIndex = scrollIndex ? scrollIndex : elementTop + scrollTop;
-
-        return scrollIndex ? scrollIndex : calculatedScrollIndex;
-    }
-
-    const handleScroll = () => {
-        const scrollBuffer = 10;
-        const sIndex = calculateAndGetScrollIndex();
-
-        if (window.pageYOffset + scrollBuffer > sIndex) {
-            setScrollLock(true);
-        } else if (window.pageYOffset - scrollBuffer < sIndex) {
-            setScrollLock(false);
-        }
-    }
 
     useEffect(() => {
+        const calculateWidth = () => {
+            const elementWidth = stickyRef.current.getBoundingClientRect().width;
+
+            if (elementWidth !== width) {
+                debounce(setWidth(elementWidth ? elementWidth : '100%'), 10);
+            }
+        }
+
+        const calculateAndGetScrollIndex = () => {
+            const elementTop = stickyRef.current.getBoundingClientRect().top;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const calculatedScrollIndex = scrollIndex ? scrollIndex : elementTop + scrollTop;
+
+            return scrollIndex ? scrollIndex : calculatedScrollIndex;
+        }
+
+        const handleScroll = () => {
+            const scrollBuffer = 10;
+            const sIndex = calculateAndGetScrollIndex();
+
+            if (window.pageYOffset + scrollBuffer > sIndex) {
+                debounce(setScrollLock(true), 10);
+            } else if (window.pageYOffset - scrollBuffer < sIndex) {
+                debounce(setScrollLock(false), 10);
+            }
+        }
+
         calculateWidth();
+
         // initiate the event handler
-        window.addEventListener('scroll', debounce(handleScroll, 10));
-        window.addEventListener('resize', debounce(calculateWidth, 10));
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', calculateWidth);
 
         // this will clean up the event every time the component is re-rendered
         return () => {
