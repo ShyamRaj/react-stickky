@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf lib && mkdir lib",
     "build": "babel src --out-dir lib",
-    "test": "npm run storybook",
+    "test": "echo \\\"Error: no test specified\\\" && exit 0",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

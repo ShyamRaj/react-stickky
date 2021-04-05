@@ -50,7 +50,6 @@
       className={style}
       scrollIndex={100}
       stickyWidth="100%"
-      isSticky={props.isChecked}
  >
  </Sticky>
  ```
@@ -58,5 +57,4 @@
  ### Propterties are optional
  - **className** - Any CSS styles needed to pass down to child components
  - **scrollIndex** - @scrollIndex y=100 the stickyness will apply to the wrapped component
- - **isSticky** - A function that takes true or false to toggle stickyness
  - **stickyWidth** - Takes width if passed or defaults to 100%
