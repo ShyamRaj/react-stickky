@@ -7,7 +7,6 @@ const Sticky = ({ className, scrollIndex, stickyWidth, children }) => {
     const [scrollLock, setScrollLock] = useState(false);
     const [width, setWidth] = useState();
 
-
     useEffect(() => {
         const calculateWidth = () => {
             const elementWidth = stickyRef.current.getBoundingClientRect().width;
@@ -49,6 +48,12 @@ const Sticky = ({ className, scrollIndex, stickyWidth, children }) => {
             window.removeEventListener('resize', calculateWidth);
         }
     }, [scrollIndex]);
+
+    useEffect(() => {
+        if (stickyWidth !== width) {
+            setWidth(stickyWidth);
+        }
+    }, [stickyWidth]);
 
     const styles = {
         top: 0
