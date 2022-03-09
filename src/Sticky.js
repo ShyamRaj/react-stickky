@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import debounce from "debounce";
 import PropTypes from "prop-types";
 
-const Sticky = ({ className, scrollIndex, stickyWidth, children }) => {
+const Sticky = ({className, scrollIndex, stickyWidth, children, zIndex}) => {
     const stickyRef = useRef(null);
     const [scrollLock, setScrollLock] = useState(false);
     const [width, setWidth] = useState();
@@ -62,8 +62,8 @@ const Sticky = ({ className, scrollIndex, stickyWidth, children }) => {
     return <div ref={stickyRef}>
       <span
           style={{
-              width: stickyWidth  && scrollLock ? stickyWidth : width,
-              zIndex: 100000,
+              width: stickyWidth && scrollLock ? stickyWidth : width,
+              zIndex: zIndex || 100000,
               position: scrollLock ? "fixed" : "relative"
           }}
           className={scrollLock ? className : null}
@@ -77,6 +77,7 @@ Sticky.propTypes = {
     className: PropTypes.any,
     scrollIndex: PropTypes.number,
     stickyWidth: PropTypes.string,
+    zIndex: PropTypes.string,
     children: PropTypes.any
 };
 

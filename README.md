@@ -58,3 +58,4 @@
  - **className** - Any CSS styles needed to pass down to child components
  - **scrollIndex** - @scrollIndex y=100 the stickyness will apply to the wrapped component
  - **stickyWidth** - Takes width if passed or defaults to 100%
+ - **zIndex** - Takes a custom zIndex or its set to max
